@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard] # Servidor ASGI para correr FastAPI
+sqlalchemy
+psycopg2-binary # Adaptador de PostgreSQL
+pydantic[email] # Para validación de datos
+python-dotenv # Para manejar variables de entorno (¡CLAVE para la conexión!)
+python-jose # Para manejar JWTs (JSON Web Tokens)
+passlib[bcrypt] # Para hashear contraseñas
