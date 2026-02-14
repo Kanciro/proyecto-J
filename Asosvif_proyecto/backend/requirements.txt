@@ -1,8 +1,11 @@
-fastapi
-uvicorn[standard] # Servidor ASGI para correr FastAPI
-sqlalchemy
-psycopg2-binary # Adaptador de PostgreSQL
-pydantic[email] # Para validación de datos
-python-dotenv # Para manejar variables de entorno (¡CLAVE para la conexión!)
-python-jose # Para manejar JWTs (JSON Web Tokens)
-passlib[bcrypt] # Para hashear contraseñas
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+sqlalchemy==2.0.36
+pymysql==1.1.1
+python-dotenv==1.0.1
+pydantic==2.10.3
+pydantic-settings==2.6.1
+PyJWT==2.9.0
+passlib==1.7.4
+python-multipart==0.0.12
+email-validator==2.2.0
