@@ -1,5 +1,8 @@
-from pydantic import BaseModel
-from typing import Optional, List
+from pydantic import BaseModel, ConfigDict
+from typing import Optional, List, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from app.schemas.leccion import LeccionResponse
 
 class ModuloBase(BaseModel):
     titulo_modulo: str
@@ -16,11 +19,14 @@ class ModuloResponse(ModuloBase):
     id_modulo: int
     id_curso: int
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ModuloConLecciones(ModuloResponse):
     lecciones: List['LeccionResponse'] = []
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
+
+
+# Actualizar referencias forward
+from app.schemas.leccion import LeccionResponse
+ModuloConLecciones.model_rebuild()

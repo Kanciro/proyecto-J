@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from typing import Optional
 from datetime import datetime
 from app.models.usuario import RolEnum
@@ -22,15 +22,13 @@ class UsuarioInDB(UsuarioBase):
     password_hash: str
     fecha_creacion: datetime
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class UsuarioResponse(UsuarioBase):
     id_usuario: int
     fecha_creacion: datetime
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class UsuarioLogin(BaseModel):
     email: EmailStr

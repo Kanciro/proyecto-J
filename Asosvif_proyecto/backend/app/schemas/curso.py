@@ -1,7 +1,10 @@
-from pydantic import BaseModel
-from typing import Optional, List
+from pydantic import BaseModel, ConfigDict
+from typing import Optional, List, TYPE_CHECKING
 from datetime import datetime
 from app.models.curso import NivelDificultad
+
+if TYPE_CHECKING:
+    from app.schemas.modulo import ModuloResponse
 
 class CursoBase(BaseModel):
     titulo: str
@@ -26,11 +29,13 @@ class CursoResponse(CursoBase):
     puntuacion_media: float
     fecha_publicacion: datetime
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class CursoConModulos(CursoResponse):
     modulos: List['ModuloResponse'] = []
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
+
+# Actualizar referencias forward
+from app.schemas.modulo import ModuloResponse
+CursoConModulos.model_rebuild()

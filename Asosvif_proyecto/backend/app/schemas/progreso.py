@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 from typing import Optional
 
@@ -19,8 +19,7 @@ class ProgresoResponse(BaseModel):
     completada: bool
     ultima_vista_en: datetime
     
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class ProgresoResumen(BaseModel):
     """Resumen del progreso de un curso"""
