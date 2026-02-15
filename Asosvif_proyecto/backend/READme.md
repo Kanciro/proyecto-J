@@ -594,7 +594,7 @@ Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
 
 ## 👥 Autores
 
-- **Tu Nombre** - Desarrollo inicial
+- **Juana Valentina Duque** - Desarrollo inicial
 
 ## 🙏 Agradecimientos
 
