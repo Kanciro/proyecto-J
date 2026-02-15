@@ -25,7 +25,7 @@ def marcar_leccion_completada(db: Session, id_inscripcion: int, id_leccion: int)
         )
         db.add(progreso)
     else:
-        progreso.completada = True
+        progreso.completada = True # type: ignore
     
     db.commit()
     db.refresh(progreso)

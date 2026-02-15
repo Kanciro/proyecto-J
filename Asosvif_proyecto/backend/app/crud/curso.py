@@ -54,5 +54,5 @@ def actualizar_puntuacion_curso(db: Session, id_curso: int):
     
     if puntuacion_media:
         db_curso = get_curso(db, id_curso)
-        db_curso.puntuacion_media = round(puntuacion_media, 1)
+        db_curso.puntuacion_media = round(puntuacion_media, 1) # type: ignore
         db.commit()
